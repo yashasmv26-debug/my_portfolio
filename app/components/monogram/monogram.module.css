@@ -1,0 +1,31 @@
+@layer components {
+  .monogram {
+    fill: var(--textTitle);
+    transition: fill var(--durationL) ease;
+    overflow: visible;
+  }
+
+  .text {
+    fill: var(--textTitle);
+    transition: fill var(--durationL) ease;
+  }
+
+  .highlight {
+    fill: var(--accent);
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 0.1s ease;
+
+    @media (--mediaUseMotion) {
+      transition: clip-path var(--durationM) var(--bezierFastoutSlowin);
+    }
+
+    :is(a:hover, .monogram:hover) & {
+      clip-path: inset(0 0 0 0);
+      transition: clip-path 0.1s ease;
+
+      @media (--mediaUseMotion) {
+        transition: clip-path var(--durationM) var(--bezierFastoutSlowin);
+      }
+    }
+  }
+}

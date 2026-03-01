@@ -1,0 +1,25 @@
+@keyframes modelFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@layer components {
+  .model {
+    position: relative;
+    opacity: 0;
+
+    &[data-loaded='true'] {
+      opacity: 1;
+      animation: modelFadeIn 1s ease forwards var(--delay);
+    }
+  }
+
+  .canvas {
+    position: absolute;
+    inset: 0;
+  }
+}
